@@ -1,0 +1,7 @@
+# Folders
+.cache/
+conan/
+build/
+
+# Files
+CMakeUserPresets.json
