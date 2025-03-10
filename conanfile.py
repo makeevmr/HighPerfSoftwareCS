@@ -9,6 +9,7 @@ class HighPerfSoftwareCSRecipe(ConanFile):
 
     def requirements(self):
         self.requires("openmpi/4.1.6")
+        self.requires("llvm-openmp/18.1.8")
 
     def layout(self):
         cmake_layout(self,
