@@ -13,7 +13,10 @@ cmake --build .
 ```
 
 ## Run Task1
-MPI `mpiexec -n 4 ./mpi_hello_world`
+MPI 
+
+`mpiexec -n 4 ./mpi_hello_world`
+
 OpenMP 
 ```
 export OMP_NUM_THREADS=4
