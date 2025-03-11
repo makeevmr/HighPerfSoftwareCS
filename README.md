@@ -20,7 +20,7 @@ MPI
 OpenMP 
 ```
 export OMP_NUM_THREADS=4
-./openmp_hello_world`
+./openmp_hello_world
 ```
 
 ## References
