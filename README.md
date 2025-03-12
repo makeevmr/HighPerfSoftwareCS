@@ -2,6 +2,12 @@
 Tasks for the course "Software for high-performance computer systems"
 
 ## How to build
+[Install CUDA](https://www.cherryservers.com/blog/install-cuda-ubuntu)
+
+Run `nvidia-smi --query-gpu=compute_cap --format=csv` to check compute capability
+
+Change flag `-arch=sm_61` in file [CMakeLists.txt](src/CMakeLists.txt) according to the compute capability version
+
 ```
 pip install conan
 conan profile detect --name default
@@ -35,4 +41,3 @@ CUDA execution:
 ## References
 [Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
 [Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)
-[CUDA installation](https://www.cherryservers.com/blog/install-cuda-ubuntu)
