@@ -27,5 +27,12 @@ export OMP_NUM_THREADS=4
 ./src/Task1/openmp_hello_world
 ```
 
+CUDA execution:
+```
+./src/Task1/cuda_hello_world
+```
+
 ## References
-[Get starded with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
+[Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
+[Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)
+[CUDA installation](https://www.cherryservers.com/blog/install-cuda-ubuntu)

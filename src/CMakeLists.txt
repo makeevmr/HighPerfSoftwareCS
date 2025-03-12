@@ -1,11 +1,21 @@
 add_subdirectory(Task1)
 
-list(APPEND TARGETS
+list(APPEND CPP_TARGETS
     mpi_hello_world
     openmp_hello_world
 )
 
+list(APPEND CUDA_TARGETS
+    cuda_hello_world
+)
+
 list(APPEND GCC_RELEASE_BUILD_TYPE_COMPILE_FLAGS
+    -DNDEBUG
+    -O3
+)
+
+list(APPEND NVCC_RELEASE_BUILD_TYPE_COMPILE_FLAGS
+    -arch=sm_61
     -DNDEBUG
     -O3
 )
@@ -32,18 +42,25 @@ list(APPEND GCC_DEBUG_BUILD_TYPE_COMPILE_FLAGS
 
 if(CMAKE_BUILD_TYPE STREQUAL Release)
     message(STATUS "RELEASE BUILD TYPE")
-    foreach(target IN ZIP_LISTS TARGETS)
+    foreach(target IN ZIP_LISTS CPP_TARGETS)
         target_compile_options(
             ${target_0}
             PUBLIC
             ${GCC_RELEASE_BUILD_TYPE_COMPILE_FLAGS}
         )
     endforeach()
+    foreach(target IN ZIP_LISTS CUDA_TARGETS)
+        target_compile_options(
+            ${target_0}
+            PUBLIC
+            ${NVCC_RELEASE_BUILD_TYPE_COMPILE_FLAGS}
+        )
+    endforeach()
 endif()
 
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
     message(STATUS "DEBUG BUILD TYPE")
-    foreach(target IN ZIP_LISTS TARGETS)
+    foreach(target IN ZIP_LISTS CPP_TARGETS)
         target_compile_options(
             ${target_0}
             PUBLIC
