@@ -39,5 +39,5 @@ CUDA execution:
 ```
 
 ## References
-[Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
-[Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)
+- [Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
+- [Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)
