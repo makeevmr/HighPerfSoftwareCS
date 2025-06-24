@@ -1,0 +1,8 @@
+#ifndef HIGH_PERF_SOFTWARE_CS_SRC_TASK2_MPI_EXEC_THREAD_EXEC_THREAD_HPP_
+#define HIGH_PERF_SOFTWARE_CS_SRC_TASK2_MPI_EXEC_THREAD_EXEC_THREAD_HPP_
+
+void executeMainThread(int num_threads, int arr_size);
+
+void executeRegularThread();
+
+#endif  // HIGH_PERF_SOFTWARE_CS_SRC_TASK2_MPI_EXEC_THREAD_EXEC_THREAD_HPP_

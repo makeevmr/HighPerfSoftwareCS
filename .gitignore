@@ -4,4 +4,5 @@ conan/
 build/
 
 # Files
+.clangd
 CMakeUserPresets.json
