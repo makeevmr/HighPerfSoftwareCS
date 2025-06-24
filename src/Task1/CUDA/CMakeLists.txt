@@ -1,0 +1,1 @@
+add_executable(cuda_hello_world cuda_hello_world.cu)

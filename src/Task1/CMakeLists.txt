@@ -1,3 +1,3 @@
-add_executable(mpi_hello_world mpi_hello_world.cpp)
-add_executable(openmp_hello_world openmp_hello_world.cpp)
-add_executable(cuda_hello_world cuda_hello_world.cu)
+add_subdirectory(CUDA)
+add_subdirectory(MPI)
+add_subdirectory(OpenMP)

@@ -1,0 +1,1 @@
+add_executable(openmp_hello_world openmp_hello_world.cpp)

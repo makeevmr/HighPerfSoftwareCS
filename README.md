@@ -25,17 +25,17 @@ cmake --build . --target {Task1|Task2|Task3|Task4}
 
 MPI execution:
 
-`mpiexec -n 4 ./src/Task1/mpi_hello_world`
+`mpiexec -n 4 ./src/Task1/MPI/mpi_hello_world`
 
 OpenMP execution:
 ```
 export OMP_NUM_THREADS=4
-./src/Task1/openmp_hello_world
+./src/Task1/OpenMP/openmp_hello_world
 ```
 
 CUDA execution:
 ```
-./src/Task1/cuda_hello_world
+./src/Task1/CUDA/cuda_hello_world
 ```
 
 ## References

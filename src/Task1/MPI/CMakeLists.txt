@@ -1,0 +1,1 @@
+add_executable(mpi_hello_world mpi_hello_world.cpp)
