@@ -5,4 +5,5 @@ build/
 
 # Files
 .clangd
+.nvim.lua
 CMakeUserPresets.json

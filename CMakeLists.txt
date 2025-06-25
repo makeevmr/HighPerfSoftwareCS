@@ -20,13 +20,13 @@ find_package(OpenMP REQUIRED)
 add_subdirectory(src)
 
 add_custom_target(Task1 DEPENDS
-    mpi_hello_world
-    openmp_hello_world
-    cuda_hello_world
+  mpi_hello_world
+  openmp_hello_world
+  cuda_hello_world
 )
 
 add_custom_target(Task2 DEPENDS
-    mpi_array_sum
-    openmp_array_sum
-    cuda_array_sum
+  mpi_array_sum
+  openmp_array_sum
+  cuda_array_sum
 )
