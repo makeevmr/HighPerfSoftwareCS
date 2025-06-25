@@ -61,6 +61,35 @@ CUDA execution:
 ./src/Task2/CUDA/cuda_array_sum 10000
 ```
 
+## Run Task3
+
+MPI execution:
+
+```
+mpiexec -n <PROCESSES> ./src/Task3/MPI/mpi_derivative
+mpiexec -n 6 ./src/Task3/MPI/mpi_derivative
+```
+
+OpenMP execution:
+```
+./src/Task3/OpenMP/openmp_derivative <THREADS>
+./src/Task3/OpenMP/openmp_derivative 6
+```
+
+CUDA execution:
+```
+./src/Task3/CUDA/cuda_derivative <BLOCKS> <X_SIZE> <Y_SIZE>
+./src/Task3/CUDA/cuda_derivative 10 10 10
+```
+
+## Run Task4
+
+OpenMP execution:
+```
+./src/Task4/OpenMP/openmp_matrix_composition <THREADS>
+./src/Task4/OpenMP/openmp_matrix_composition 6
+```
+
 ## References
 - [Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
 - [Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)

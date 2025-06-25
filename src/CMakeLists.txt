@@ -1,23 +1,30 @@
 add_subdirectory(Task1)
 add_subdirectory(Task2)
+add_subdirectory(Task3)
+add_subdirectory(Task4)
 
 list(APPEND MPI_TARGETS
   mpi_hello_world
   mpi_array_sum
+  mpi_derivative
 )
 
 list(APPEND OPENMP_TARGETS
   openmp_hello_world
   openmp_array_sum
+  openmp_derivative
+  openmp_matrix_composition
 )
 
 list(APPEND CUDA_TARGETS
   cuda_hello_world
   cuda_array_sum
+  cuda_derivative
 )
 
 list(APPEND OBJ_LIBRARIES
   array_sum_objs
+  generate_array_objs
 )
 
 # TODO toggle flags

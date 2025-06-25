@@ -30,3 +30,13 @@ add_custom_target(Task2 DEPENDS
   openmp_array_sum
   cuda_array_sum
 )
+
+add_custom_target(Task3 DEPENDS
+  mpi_derivative
+  openmp_derivative
+  cuda_derivative
+)
+
+add_custom_target(Task4 DEPENDS
+  openmp_matrix_composition
+)
