@@ -8,17 +8,19 @@ list(APPEND MPI_TARGETS
 
 list(APPEND OPENMP_TARGETS
     openmp_hello_world
+    openmp_array_sum
 )
 
 list(APPEND CUDA_TARGETS
     cuda_hello_world
+    cuda_array_sum
 )
 
 list(APPEND OBJ_LIBRARIES
     array_sum_objs
 )
 
-# TODO change later
+# TODO toggle flags
 list(APPEND GCC_RELEASE_BUILD_TYPE_COMPILE_FLAGS
     # -DNDEBUG
     # -O3
@@ -111,6 +113,11 @@ if(CMAKE_BUILD_TYPE STREQUAL Debug)
 endif()
 
 target_link_libraries(mpi_array_sum PUBLIC array_sum_objs)
+target_link_libraries(mpi_array_sum PUBLIC generate_array_objs)
+
+target_link_libraries(openmp_array_sum PUBLIC generate_array_objs)
+
+target_link_libraries(cuda_array_sum PUBLIC generate_array_objs)
 
 foreach(mpi_target IN LISTS MPI_TARGETS)
     target_link_libraries(${mpi_target} PUBLIC openmpi::openmpi)

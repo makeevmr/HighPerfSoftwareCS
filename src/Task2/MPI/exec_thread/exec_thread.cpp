@@ -11,8 +11,8 @@
 void executeMainThread(int num_threads, int arr_size) {
     constexpr int kMaxArrayElement = 100;
     int elements_per_thread = arr_size / num_threads;
-    int* arr =
-        generateArray(static_cast<std::size_t>(arr_size), kMaxArrayElement);
+    int* arr = new int[static_cast<std::size_t>(arr_size)];
+    generateArray(arr, static_cast<std::size_t>(arr_size), kMaxArrayElement);
     auto time_start = std::chrono::high_resolution_clock::now();
     if ((arr_size % num_threads) == 0) {
         for (int i = 1; i < num_threads; ++i) {
@@ -34,11 +34,12 @@ void executeMainThread(int num_threads, int arr_size) {
         MPI_Send(&arr[arr_size - el_left], el_left, MPI_INT, num_threads - 1, 0,
                  MPI_COMM_WORLD);
     }
-    int result = arraySum(arr, static_cast<std::size_t>(elements_per_thread));
+    int64_t result =
+        arraySum(arr, static_cast<std::size_t>(elements_per_thread));
     for (int i = 1; i < num_threads; ++i) {
-        int subsum;
+        int64_t subsum;
         MPI_Status status;
-        MPI_Recv(&subsum, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD,
+        MPI_Recv(&subsum, 1, MPI_INT64_T, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD,
                  &status);
 
         result += subsum;
@@ -47,8 +48,10 @@ void executeMainThread(int num_threads, int arr_size) {
     delete[] arr;
     std::cout << "Total sum: " << result << std::endl;
     std::cout << "Time elapsed: "
-              << std::chrono::duration<double>(time_end - time_start).count()
-              << " seconds" << std::endl;
+              << std::chrono::duration<double, std::milli>(time_end -
+                                                           time_start)
+                     .count()
+              << " milliseconds" << std::endl;
 }
 
 void executeRegularThread() {
@@ -57,7 +60,7 @@ void executeRegularThread() {
     MPI_Recv(&arr_size, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
     int* arr = new int[static_cast<std::size_t>(arr_size)];
     MPI_Recv(arr, arr_size, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
-    int result = arraySum(arr, static_cast<std::size_t>(arr_size));
+    int64_t result = arraySum(arr, static_cast<std::size_t>(arr_size));
     delete[] arr;
-    MPI_Send(&result, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+    MPI_Send(&result, 1, MPI_INT64_T, 0, 0, MPI_COMM_WORLD);
 }

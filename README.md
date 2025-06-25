@@ -45,9 +45,23 @@ CUDA execution:
 MPI execution:
 
 ```
-mpiexec -n 4 ./src/Task2/MPI/mpi_array_sum <ARRAY_SIZE>
+mpiexec -n <PROCESSES> ./src/Task2/MPI/mpi_array_sum <ARRAY_SIZE>
+mpiexec -n 6 ./src/Task2/MPI/mpi_array_sum 10000
+```
+
+OpenMP execution:
+```
+./src/Task2/OpenMP/openmp_array_sum <THREADS> <ARRAY_SIZE>
+./src/Task2/OpenMP/openmp_array_sum 6 10000
+```
+
+CUDA execution:
+```
+./src/Task2/CUDA/cuda_array_sum <ARRAY_SIZE>
+./src/Task2/CUDA/cuda_array_sum 10000
 ```
 
 ## References
 - [Get started with mpi](https://www.paulnorvig.com/guides/using-mpi-with-c.html)
 - [Get started with openmpi](https://curc.readthedocs.io/en/latest/programming/OpenMP-C.html)
+- [Get started with cuda](https://cuda-tutorial.readthedocs.io/en/latest/tutorials/tutorial01/)

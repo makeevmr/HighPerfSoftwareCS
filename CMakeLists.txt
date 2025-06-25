@@ -27,4 +27,6 @@ add_custom_target(Task1 DEPENDS
 
 add_custom_target(Task2 DEPENDS
     mpi_array_sum
+    openmp_array_sum
+    cuda_array_sum
 )
